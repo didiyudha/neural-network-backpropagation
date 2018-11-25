@@ -33,7 +33,7 @@ JONeuron = length(T(1, :)); % Jumlah neuron pada output layer.
  
 JHNeuron = 5;   % Jumlah neuron pada hidden layer.
 LR = 0.1;       % Learning rate.
-Epoch = 5000;   % Maximum iterasi.
+Epoch = 1000;   % Maximum iterasi.
 MaxMSE = 10^-5; % Maximum MSE.
  
 % ------------------------------------------------------------------------
@@ -117,6 +117,8 @@ while (ee <= Epoch) && (MSEepoch > MaxMSE)
     MSE = [MSE (MSEepoch/JumPola)];
     ee = ee + 1;
 end
+
+save('TrainingResult', 'W1', 'W2', 'MSE', 'JHNeuron', 'JONeuron', 'LR');
 
 plot(MSE);
 xlabel('Epoch');
